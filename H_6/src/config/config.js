@@ -4,19 +4,16 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const envVarsSchema = Joi.object({
-    PORT: Joi.number().default(3000),
-    MONGODB_URL: Joi.string().trim().description("Mongodb url"),
-    JWT_SECRET_KEY: Joi.string()
-    .description("Jwt sectreat key")
-    .default("thisisjwtsecreat_key"),
+  PORT: Joi.number().default(3000),
+  MONGODB_URL: Joi.string().trim().description("Mongodb url"),
 }).unknown();
 
 const { value: envVars, error } = envVarsSchema
   .prefs({ errors: { label: "key" } })
   .validate(process.env);
 
-if (error) {
-  console.log("Config Error: ", error);
+  if (error) {
+    console.log("Config Error: ", error);
 }
 
 module.exports = {
@@ -28,4 +25,4 @@ module.exports = {
       useUnifiedTopology: true,
     },
   },
-}
+};
