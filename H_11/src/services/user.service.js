@@ -8,4 +8,6 @@ const User = require("../models/user.model");
 const createUser = async (reqBody) => {
   return User.create(reqBody);
 };
-module.exports = {createUser};
+module.exports = {
+  createUser
+};

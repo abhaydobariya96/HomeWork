@@ -10,7 +10,7 @@ const createBook = async (reqBody) => {
 };
 
 const listBook = async (reqBody) => {
-  return Book.find({ $or: [ { is_active: true }] })
+  return Book.find({ $or: [ { is_active:true}]})
 };
 
 const deleteBook = async (id) => {

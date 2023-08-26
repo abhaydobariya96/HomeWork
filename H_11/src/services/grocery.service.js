@@ -10,7 +10,7 @@ const createGrocery = async (reqBody) => {
 };
 
 const listGrocery = async (reqBody) => {
-  return Grocery.find({ $or: [ { is_active: true}] })
+  return Grocery.find({ $or: [ { is_active:true}]})
 };
 
 const deleteGrocery = async (id) => {

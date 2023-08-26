@@ -26,3 +26,9 @@ const categorySchema = new mongoose.Schema(
 
 const category = mongoose.model("category",categorySchema)
 module.exports=category
+
+// {
+//     "category_name":"abhay",
+//     "category_desc":"jhgbhvjghbgh",
+//     "category_count":"654"
+// }
