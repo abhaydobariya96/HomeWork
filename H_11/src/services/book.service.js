@@ -10,11 +10,15 @@ const createBook = async (reqBody) => {
 };
 
 const listBook = async (reqBody) => {
-  return Book.find({ $or: [ { is_active:true}]})
+  return Book.find({ $or: [{ is_active: true }] })
 };
 
 const deleteBook = async (id) => {
   return Book.findByIdAndDelete(id)
 };
 
-module.exports = { createBook, listBook,deleteBook}
+const bookByName = async (book_name) => {
+  return Book.findOne({ book_name });
+}
+
+module.exports = { createBook, listBook, deleteBook, bookByName }

@@ -1,14 +1,16 @@
-    const { bookService } = require("../services");
+const { bookService } = require("../services");
 
 /** create book */
 const createBook = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        const book = await bookService.createBook(reqBody);
-        if (!book) {
-            throw new Error("Something went wrong, please try again or later!");
+        const bookEx =await bookService.bookByName(reqBody.book_name)
+        if (bookEx) {
+            throw new Error(`please add other category this ${bookEx.book_name} book already created.`);
         }
+
+        const book = await bookService.createBook(reqBody);
 
         res.status(200).json({
             success: true,
@@ -61,4 +63,8 @@ const deleteBook = async (req, res) => {
     }
 };
 
-module.exports = {createBook,listBook,deleteBook};
+
+//Book Update
+
+
+module.exports = { createBook, listBook, deleteBook };

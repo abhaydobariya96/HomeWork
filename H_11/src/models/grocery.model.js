@@ -21,12 +21,13 @@ const groceryShema = new mongoose.Schema(
         is_active: {
             type: Boolean,
             default: true,
-        },
+        }
     },
     {
         timestamps: true,
         versionKey: false
     }
 )
+
 const grocery =mongoose.model("grocery",groceryShema);
 module.exports = grocery;
